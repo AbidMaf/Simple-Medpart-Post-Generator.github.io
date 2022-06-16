@@ -1,5 +1,5 @@
 # Simple-Medpart-Post-Generator
- Web application to generate Instagram post with just few clicks
+ Web application to generate Instagram media partner post within just few clicks
 
 <h3>Library Used in Project</h3>
 <ul>
