@@ -129,7 +129,7 @@ h3 {
     aspect-ratio: 1;
     background-image: url('Assets/Slide1.png');
     background-size: cover;
-}
+}/* test */
 
 #slide2 .image {
     width: 100%;
