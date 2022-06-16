@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script> -->
+    <script lang="javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <section class="container">
+        <div class="preview" id="slide1">
+            <div class="poster" id="posterAttachment"></div>
+            <div class="heading">
+                <h1>One Day Class 2022</h1>
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, dolores.&nbsp;</h3>
+            </div>
+            <div class="image"></div>
+        </div>
+        <div class="preview hide" id="slide2">
+            <img src="Assets/ODC.png" class="poster" id="posterAttachment"></img>
+            <div class="ornament-corner"></div>
+            <div class="image"></div>
+        </div>
+        <div class="controller">
+            <form action="" method="post">
+                <div class="slide-selector">
+                    <label for="slideNumber">Pilih Slide: </label>
+                    <input type="radio" id="postNumber1" name="slide" value="1" checked onchange="changeSlide()">
+                    <label for="postNumber1">Slide 1</label>
+                    <input type="radio" id="postNumber2" name="slide" value="2" onchange="changeSlide()">
+                    <label for="postNumber2">Slide 2</label>
+                </div>
+                <div class="poster-vertical">
+                    <label for="posterVertical">Poster Position (vertical):</label>
+                    <input type="range" name="poster-vertical" id="posterVertical" min="1" max="100" value="50%" oninput="changePosterY()" onchange="changePosterY()">
+                </div>
+                <div class="poster-horizontal">
+                    <label for="posterHorizontal">Poster Position (horizontal):</label>
+                    <input type="range" name="poster-horizontal" id="posterHorizontal" min="1" max="100" value="50%" oninput="changePosterX()" onchange="changePosterX()">
+                </div>
+                <div class="poster-scale">
+                    <label for="posterScale">Poster Scale: </label>
+                    <input type="range" name="poster-scale" id="posterScale" min="0" max="200" value="100" oninput="posterScaleSize()" onchange="posterScaleSize()">
+                </div>
+                <div class="upload-image">
+                    <label for="uploadImage">Image Size:</label>
+                    <input type="file" name="upload-image" id="uploadImage" accept="image/*" onchange="selectedFile()">
+                </div>
+                <div class="heading-1">
+                    <label for="heading1">Heading 1: </label>
+                    <input type="text" name="heading-1" id="heading1" oninput="changeHeading1()">
+                </div>
+                <div class="heading-2">
+                    <label for="heading2">Heading 2: </label>
+                    <input type="text" name="heading-2" id="heading2" oninput="changeHeading2()">
+                </div>
+                <input type="button" id="downloadButton" value="Download" onclick="downloadSlides()">
+            </form>
+        </div>
+    </section>
+    <div id="img-out"></div>
+</body>
+</html>
